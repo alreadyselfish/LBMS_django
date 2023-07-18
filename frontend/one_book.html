@@ -1,0 +1,13 @@
+{% extends 'basics.html' %}
+
+{% block content %}
+    <h1>Title ({{book.id}}) : {{book.name}}</h1>
+    <h2>MRP: {{book.price}}</h2>
+    <h2 style = "color: red;">Our Price : {{book.our_price}}</h2>
+    <h4>Number of pages = {{book.number_of_pages}} </h4>
+    <p>
+        {{book.description}} <hr><hr>
+        <button><a href="/all/">Return to book lists.</a></button>
+        <button><a href="/">Home</a></button>
+    </p>
+{% endblock %}

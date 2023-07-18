@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LBMS</title>
+</head>
+<body>
+    {% if message %}
+        <h3 style="color: rgb(183, 11, 65); background-color: aquamarine;"> {{message}} </h3>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
