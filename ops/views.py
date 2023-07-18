@@ -35,7 +35,7 @@ def one_book_delete(request, pk):
     try:
         instance = Book.objects.get(pk=pk)
         instance.delete()
-        mess = f"Book with id={instance.id} has been deleted."
+        mess = f"Book with id={pk} has been deleted."
     except:
         mess = f"Cannot find book with id={pk}."
     context = {
@@ -43,4 +43,23 @@ def one_book_delete(request, pk):
         'message' : mess
     }
     return render(request, 'all_books.html', context)
+
+def update_book_view(request):
+    context = {'message':''}
+    if request.method == 'POST':
+        data = request.POST
+        pk = request.POST.get('id')
+        print("Reached HERE: ", pk)
+        try:
+            instance = Book.objects.get(pk=pk)
+            mess = f"Book with id={pk} has been updated."
+            if data.get('name'): instance.name = data.get('name')
+            if data.get('price'): instance.price = data.get('price')
+            if data.get('number_of_pages'): instance.number_of_pages = data.get('number_of_pages')
+            if data.get('desc'): instance.description = data.get('desc')
+            instance.save()
+        except:
+            mess = f"Cannot find book with id={pk}."
+        context['message'] = mess
+    return render(request, 'update_book.html', context)
 

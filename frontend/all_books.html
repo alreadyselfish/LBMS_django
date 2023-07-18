@@ -1,9 +1,9 @@
 {% extends 'basics.html' %}
 
 {% block content %}
-    <h1>These are all our books</h1>
-    <button><a href="/">Home</a></button>
+    <h1>Library</h1>
     <button><a href="/add/">Add a Book</a></button>
+    <button><a href="/update/">Update a Book</a></button>
     
     {% for book in books %}
         
@@ -12,7 +12,6 @@
         <h5 style="color:red;">OUR SPECIAL PRICE: {{book.our_price}} </h5>
         <p>
             <button><a href="/book/{{book.id}}/"> Read More </a></button>
-            <button><a href="/update/{{book.id}}/">Update</a></button>
             <button><a href="/delete/{{book.id}}/">Delete</a></button>
         </p>
         <hr>

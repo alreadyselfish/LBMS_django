@@ -5,23 +5,26 @@
     Add a Book to the library 
 </h1>
 
-<form method='POST' action="/add/"> {% csrf_token %}
+<form method='POST' action="/update/"> {% csrf_token %}
+    <label for="ID">ID</label><br>
+    <input type="number" name="id" required>
+    <br><br>
     <label for="name">Name</label><br>
-    <input type="text" name="name" maxlength="64" required>
+    <input type="text" name="name" maxlength="64">
     <br><br>
     <label for="desc">Description</label><br>
-    <input type="text-area" name="desc" maxlength="500" required>
+    <input type="text-area" name="desc" maxlength="500">
     <br><br>
     <label for="number_of_pages">No. of pages</label><br>
     <input type="number" name="number_of_pages">
     <br><br>
     <label for="price">Price</label><br>
-    <input type="number" name="price" required>
+    <input type="number" name="price">
     <br><br>
-    <button type="submit">Submit</button>
+    <button type="submit">Update</button>
 </form>
 
 <hr> <hr>
-<button><a href="/">Return to book lists.</a></button>
+<button><a href="/">Return to library.</a></button>
 
 {% endblock content %}
