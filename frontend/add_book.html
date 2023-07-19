@@ -1,7 +1,7 @@
 {% extends "basics.html" %}
 
 {% block content %}
-<h1>
+<h1 class="navbar">
     Add a Book to the library 
 </h1>
 
@@ -18,10 +18,12 @@
     <label for="price">Price</label><br>
     <input type="number" name="price" required>
     <br><br>
-    <button type="submit">Submit</button>
+    <button class="btn btn-warning btn-sm custom-btn" type="submit">Add to library</button>
 </form>
 
 <hr> <hr>
-<button><a href="/">Return to book lists.</a></button>
+<a href="/">
+    <button class="btn btn-warning btn-sm custom-btn" role="button">Back to list</button>
+</a>
 
 {% endblock content %}

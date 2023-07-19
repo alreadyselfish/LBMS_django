@@ -27,7 +27,7 @@ def add_book_view(request):
         if data.get('number_of_pages'):
             new.number_of_pages = data.get('number_of_pages')
         new.save()
-        context['message'] = "New Book added succesfully"
+        context['message'] = f"Book with UID:{new.id} has been added to the library succesfully."
     return render(request, 'add_book.html', context)
 
 
@@ -35,9 +35,9 @@ def one_book_delete(request, pk):
     try:
         instance = Book.objects.get(pk=pk)
         instance.delete()
-        mess = f"Book with id={pk} has been deleted."
+        mess = f"Book with UID:{pk} has been deleted."
     except:
-        mess = f"Cannot find book with id={pk}."
+        mess = f"Book with UID:{pk} does not exists."
     context = {
         'books': Book.objects.all(),
         'message' : mess
@@ -52,14 +52,14 @@ def update_book_view(request):
         print("Reached HERE: ", pk)
         try:
             instance = Book.objects.get(pk=pk)
-            mess = f"Book with id={pk} has been updated."
+            mess = f"Book with UID:{pk} has been updated."
             if data.get('name'): instance.name = data.get('name')
             if data.get('price'): instance.price = data.get('price')
             if data.get('number_of_pages'): instance.number_of_pages = data.get('number_of_pages')
             if data.get('desc'): instance.description = data.get('desc')
             instance.save()
         except:
-            mess = f"Cannot find book with id={pk}."
+            mess = f"Book with UID:{pk} does not exists."
         context['message'] = mess
     return render(request, 'update_book.html', context)
 

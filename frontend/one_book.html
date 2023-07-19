@@ -1,12 +1,16 @@
 {% extends 'basics.html' %}
 
 {% block content %}
-    <h1>Title ({{book.id}}) : {{book.name}}</h1>
-    <h2>MRP: {{book.price}}</h2>
-    <h2 style = "color: red;">Our Price : {{book.our_price}}</h2>
-    <h4>Number of pages = {{book.number_of_pages}} </h4>
+    <h1 class="navbar">Title ({{book.id}}) : {{book.name}}</h1>
+    <div class="flex-read-one">
+        <h2>Price: {{book.price}}</h2>
+        <h2 style = "color: #fccb06;">Our Price : {{book.our_price}}</h2>
+    </div>
+    <h4>Number of pages = {{book.number_of_pages}} </h4> <hr>
     <p>
-        {{book.description}} <hr><hr>
-        <button><a href="/">Return to library.</a></button>
+        {{book.description}} <br> <br> <hr>
+        <a href="/">
+            <button class="btn btn-warning btn-sm custom-btn" role="button">Back to list</button>
+        </a>
     </p>
 {% endblock %}

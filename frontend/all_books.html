@@ -1,19 +1,32 @@
 {% extends 'basics.html' %}
 
 {% block content %}
-    <h1>Library</h1>
-    <button><a href="/add/">Add a Book</a></button>
-    <button><a href="/update/">Update a Book</a></button>
+    <div class="flex navbar">
+        <h1>Library</h1>
+        <div class="both-button">
+            <a href="/add/">
+                <button class="btn btn-warning btn-sm custom-btn" role="button">Add a Book</button>
+            </a>
+            <a href="/update/">
+                <button class="btn btn-warning btn-sm custom-btn" role="button">Update a Book</button>
+            </a>
+        </div>
+    </div>
     
     {% for book in books %}
         
-        <h3>{{book.name}} ({{book.id}}) </h3>
-        <h5>Price : {{book.price}}</h5>
-        <h5 style="color:red;">OUR SPECIAL PRICE: {{book.our_price}} </h5>
-        <p>
-            <button><a href="/book/{{book.id}}/"> Read More </a></button>
-            <button><a href="/delete/{{book.id}}/">Delete</a></button>
-        </p>
+        <div class="card-style">
+            <h3>{{book.name}} (UID:{{book.id}})</h3>
+            <h5 class="grid-child-start">Price : {{book.price}}</h5>
+            <h5 class="grid-child-start" style="color: #fccb06 ">After Discount: {{book.our_price}} </h5>
+            <div class="both-button both-button-card">
+                <a href="/book/{{book.id}}/">
+                    <button class="btn btn-warning btn-sm custom-btn" role="button">Read More</button>
+                </a><a href="/delete/{{book.id}}/">
+                    <button class="btn btn-warning btn-sm custom-btn" role="button">Delete</button>
+                </a>
+            </div>
+        </div>
         <hr>
         
     {% endfor %}

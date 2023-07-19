@@ -1,12 +1,12 @@
 {% extends "basics.html" %}
 
 {% block content %}
-<h1>
+<h1 class="navbar">
     Add a Book to the library 
 </h1>
 
 <form method='POST' action="/update/"> {% csrf_token %}
-    <label for="ID">ID</label><br>
+    <label for="ID">UID</label><br>
     <input type="number" name="id" required>
     <br><br>
     <label for="name">Name</label><br>
@@ -21,10 +21,12 @@
     <label for="price">Price</label><br>
     <input type="number" name="price">
     <br><br>
-    <button type="submit">Update</button>
+    <button class="btn btn-warning btn-sm custom-btn" type="submit">Update</button>
 </form>
 
 <hr> <hr>
-<button><a href="/">Return to library.</a></button>
+<a href="/">
+    <button class="btn btn-warning btn-sm custom-btn" role="button">Back to list</button>
+</a>
 
 {% endblock content %}
